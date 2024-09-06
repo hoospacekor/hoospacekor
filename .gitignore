@@ -48,3 +48,5 @@ dist
 .pnp.*
 
 stats.html
+node_modules
+dist
