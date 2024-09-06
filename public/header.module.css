@@ -1,0 +1,10 @@
+a:link {
+  text-decoration: none;
+}
+a,
+a:visited a:active {
+  color: #3273dc;
+}
+nav > p > a {
+  margin-right: 8px;
+}
