@@ -1,0 +1,66 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  highlight.js:
+    specifier: ^11.10.0
+    version: 11.10.0
+  preact:
+    specifier: ^10.23.2
+    version: 10.23.2
+  preact-iso:
+    specifier: ^2.6.3
+    version: 2.6.3(preact-render-to-string@6.5.10)(preact@10.23.2)
+
+devDependencies:
+  wmr:
+    specifier: ^3.8.0
+    version: 3.8.0
+
+packages:
+
+  /fsevents@2.3.3:
+    resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
+    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /highlight.js@11.10.0:
+    resolution: {integrity: sha512-SYVnVFswQER+zu1laSya563s+F8VDGt7o35d4utbamowvUNLLMovFqwCLSocpZTz3MgaSRA1IbqRWZv97dtErQ==}
+    engines: {node: '>=12.0.0'}
+    dev: false
+
+  /preact-iso@2.6.3(preact-render-to-string@6.5.10)(preact@10.23.2):
+    resolution: {integrity: sha512-2JqNi+Elyt7rf0kULtMn/QskbZE10cDMrhmoanGKWJX3gOCTIfLt/ta5xWu+kQUsyInPkTQIVp3fS5Im0V+X8A==}
+    peerDependencies:
+      preact: '>=10'
+      preact-render-to-string: '>=6.4.0'
+    dependencies:
+      preact: 10.23.2
+      preact-render-to-string: 6.5.10(preact@10.23.2)
+    dev: false
+
+  /preact-render-to-string@6.5.10(preact@10.23.2):
+    resolution: {integrity: sha512-BJdypTQaBA5UbTF9NKZS3zP93Sw33tZOxNXIfuHofqOZFoMdsquNkVebs/HkEw0in/Qbi6Ep/Anngnj+VsHeBQ==}
+    peerDependencies:
+      preact: '>=10'
+    dependencies:
+      preact: 10.23.2
+    dev: false
+
+  /preact@10.23.2:
+    resolution: {integrity: sha512-kKYfePf9rzKnxOAKDpsWhg/ysrHPqT+yQ7UW4JjdnqjFIeNUnNcEJvhuA8fDenxAGWzUqtd51DfVg7xp/8T9NA==}
+    dev: false
+
+  /wmr@3.8.0:
+    resolution: {integrity: sha512-W3f2nB80C9Y0uNZXWMoxINkz4HdBRxt5MvxmcFcMlO87Ybsf6ny23kVUUzU8RA2LX86CpReMHl2Y0BTMLezLRg==}
+    engines: {node: '>=12.17.x'}
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.3
+    dev: true
