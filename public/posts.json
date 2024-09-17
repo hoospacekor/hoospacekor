@@ -1,1 +1,17 @@
-{"db":[{"db-test1":["디비 파일","2024-09-10T00:50:58.780Z"]}],"dev":[{"dev-test1":["Dev Test 1","2024-09-10T00:51:15.587Z"]}],"nodejs":[{"nodejs-test1":["nodejs Test 1","2024-09-10T00:50:34.277Z"]},{"nodejs-test2":["Nodejs Test 2","2024-09-10T00:50:44.655Z"]}],"personal":[{"personal-test1":["Personal Test 1","2024-09-16T14:28:35.182Z"]}]}
+{
+  "db": [],
+  "dev": [],
+  "nodejs": [
+    {
+      "how-to-make-a-list-of-files-from-directories": [
+        "How to make a list of files from directories",
+        "2024-09-17T07:41:48.561Z"
+      ]
+    }
+  ],
+  "personal": [
+    {
+      "hello": ["안녕하세요", "2024-09-17T04:02:30.355Z"]
+    }
+  ]
+}

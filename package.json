@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "start": "wmr --reload",
-    "build": "wmr build --prerender",
+    "build": "node generateJSON.js && wmr build --prerender",
     "serve": "wmr serve"
   },
   "eslintConfig": {
