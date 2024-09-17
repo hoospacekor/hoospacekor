@@ -18,12 +18,13 @@ const List = () => {
   const { path } = useLocation();
   const category = path.substring(1);
   return (
-    jsonObject && (
+    jsonObject &&
+    jsonObject[category] && (
       <section>
         <h2>{category.toUpperCase()}</h2>
         <p>
           <ul>
-            {jsonObject[category]?.toReversed().map((post) => {
+            {jsonObject[category]?.reverse().map((post) => {
               const singlePost = Object.entries(post)[0];
               return (
                 <li>

@@ -11,7 +11,7 @@ const DynamicPost = () => {
   useEffect(() => {
     const loadPost = async () => {
       try {
-        const postModule = await import(`public/../..${path}.js`);
+        const postModule = await import(`../..${path}.js`);
         const content = await postModule.default();
         setPostContent(content);
       } catch (error) {
