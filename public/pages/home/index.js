@@ -21,15 +21,15 @@ export default function Home() {
         return [category, id, title, date];
       });
     })
-    .sort((a, b) => new Date(b[2]).getTime() - new Date(a[2]).getTime())
+    .sort((a, b) => new Date(b[3]).getTime() - new Date(a[3]).getTime())
     .slice(0, 5);
 
   return (
     <>
       <h2>Hi I'm JoongHoo Ahn</h2>
-      <blockquote cite="https://motherfuckingwebsite.com">
-        <strong>"You. Are. Over-designing"</strong>
-      </blockquote>
+      <q cite="https://motherfuckingwebsite.com">
+        <strong>You. Are. Over-designing</strong>
+      </q>
       <p>
         This blog is
         <ol>
