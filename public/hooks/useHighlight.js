@@ -65,7 +65,7 @@ export const useHighlight = (language = 'javascript', code = '') => {
   }, [mode]);
 
   return (
-    <pre style={{ overflow: 'scroll' }}>
+    <pre>
       <code dangerouslySetInnerHTML={{ __html: highlightedCode }} />
     </pre>
   );
