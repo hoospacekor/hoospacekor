@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'preact/hooks';
-import { useLocation } from 'preact-iso';
+import { useLocation, useRoute } from 'preact-iso';
+import SharedDate from '../../context/dateContext';
 
 const DynamicPost = () => {
   const { path } = useLocation();
+  const { query } = useRoute();
+  const { date } = query;
   const [postContent, setPostContent] = useState(null);
 
   useEffect(() => {
@@ -20,7 +23,11 @@ const DynamicPost = () => {
     loadPost();
   }, []);
 
-  return <div>{postContent}</div>;
+  return (
+    <SharedDate.Provider value={date}>
+      <div>{postContent}</div>
+    </SharedDate.Provider>
+  );
 };
 
 export default DynamicPost;

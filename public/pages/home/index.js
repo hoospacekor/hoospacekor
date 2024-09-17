@@ -4,12 +4,21 @@ const { default: jsonObject } = await import('../../posts.json', {
   },
 });
 
+const generateDate = (date) => {
+  return new Date(date).toLocaleDateString('en-us', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+};
+
 export default function Home() {
   const recentPosts = Object.entries(jsonObject)
-    .flatMap(([_, items]) => {
+    .flatMap(([category, items]) => {
       return items.map((item) => {
-        const [category, post] = Object.entries(item)[0];
-        return [category, post[0], post[1]];
+        const [id, post] = Object.entries(item)[0];
+        const [title, date] = post;
+        return [category, id, title, date];
       });
     })
     .sort((a, b) => new Date(b[2]).getTime() - new Date(a[2]).getTime())
@@ -67,17 +76,15 @@ export default function Home() {
       {jsonObject && (
         <ul>
           {recentPosts.map((post) => {
-            const [category, title, date] = post;
+            const [category, id, title, date] = post;
             return (
               <li>
                 <span style={'font-size: 14px; padding-right: 14px;'}>
-                  {new Date(date).toLocaleDateString('en-us', {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric',
-                  })}
+                  {generateDate(date)}
                 </span>
-                <a href={`/posts/${category}/${title}`}>{title}</a>
+                <a href={`/posts/${category}/${id}?date=${generateDate(date)}`}>
+                  {title}
+                </a>
               </li>
             );
           })}

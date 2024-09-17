@@ -30,7 +30,11 @@ const List = () => {
                   <span style={'font-size: 14px; padding-right: 14px;'}>
                     {generateDate(singlePost[1][1])}
                   </span>
-                  <a href={`/posts/${category}/${singlePost[0]}`}>
+                  <a
+                    href={`/posts/${category}/${
+                      singlePost[0]
+                    }?date=${generateDate(singlePost[1][1])}`}
+                  >
                     {singlePost[1][0]}
                   </a>
                 </li>
