@@ -8,11 +8,23 @@
     <link rel="icon" href="data:" />
     <link rel="modulepreload" as="script" href="/main.js" />
     <meta name="color-scheme" content="light dark" />
+    <style>
+      @media (prefers-color-scheme: dark) {
+        html {
+          color: #ebebeb;
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+        html {
+          color: #313131;
+        }
+      }
+    </style>
   </head>
   <body
     style="
       font-family: Arial, Helvetica, sans-serif;
-      color: #313131;
       word-break: break-all;
       line-height: 1.2;
     "
