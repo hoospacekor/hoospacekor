@@ -1,5 +1,8 @@
 import styles from './header.module.css';
 
+const darkTheme = import('highlight.js/styles/github-dark.min.css');
+const lightTheme = import('highlight.js/styles/github.min.css');
+
 export default function Header() {
   return (
     <>

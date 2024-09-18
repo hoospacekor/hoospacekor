@@ -13,11 +13,33 @@ hljs.registerLanguage('shell', shell);
 hljs.registerLanguage('sql', sql);
 hljs.highlightAll();
 
+const enableStylesheet = (href) => {
+  Array.from(document.styleSheets).forEach((stylesheet) => {
+    if (stylesheet.href && stylesheet.href.includes(href)) {
+      stylesheet.disabled = false; // Enable the stylesheet
+    }
+  });
+};
+
+const disableStylesheet = (href) => {
+  Array.from(document.styleSheets).forEach((stylesheet) => {
+    if (stylesheet.href && stylesheet.href.includes(href)) {
+      stylesheet.disabled = true; // Disable the stylesheet
+    }
+  });
+};
+
 export const useHighlight = (language = 'javascript', code = '') => {
-  const [mode, setMode] = useState('');
+  const [mode, setMode] = useState(
+    window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  );
   const highlightedCode = hljs.highlight(code, {
     language,
   }).value;
+
+  const isDark = mode === 'dark';
+  const curTheme = isDark ? 'github-dark.' : 'github.';
+  const prevTheme = isDark ? 'github.' : 'github-dark.';
 
   useEffect(() => {
     window
@@ -30,38 +52,18 @@ export const useHighlight = (language = 'javascript', code = '') => {
         : 'light'
     );
 
+    const loadTheme = async () => {
+      disableStylesheet(prevTheme);
+      enableStylesheet(curTheme);
+    };
+
+    loadTheme();
+
     return () => {
       window
         .matchMedia('(prefers-color-scheme: dark)')
         .removeEventListener('change', () => {});
     };
-  }, [mode]);
-
-  useEffect(() => {
-    const isDark = mode === 'dark';
-    const linkElement = document.createElement('link');
-
-    const loadTheme = async () => {
-      const theme = isDark
-        ? '/@npm/highlight.js/styles/github-dark.min.css?asset'
-        : '/@npm/highlight.js/styles/github.min.css?asset';
-      const isLinkElement = linkElement instanceof HTMLLinkElement;
-      if (isLinkElement) {
-        linkElement.rel = 'stylesheet';
-        linkElement.id = 'hljs-theme';
-        linkElement.href = theme;
-      }
-
-      if (document.getElementById('hljs-theme')) {
-        const previousTheme = document.getElementById('hljs-theme');
-        previousTheme.remove();
-        document.head.appendChild(linkElement);
-      } else {
-        document.head.appendChild(linkElement);
-      }
-    };
-
-    loadTheme();
   }, [mode]);
 
   return (
