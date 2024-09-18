@@ -3,6 +3,8 @@ const path = require('path');
 
 const postsRoute = path.join(__dirname, 'public/posts');
 const outputFile = path.join(__dirname, 'public', 'posts.json');
+const outputMapFile = path.join(__dirname, 'public', 'postMap.js');
+
 const directoryList = fs.readdirSync(postsRoute);
 const postDirectoryRoutes = directoryList.map((dir) =>
   path.join(postsRoute, dir)
@@ -29,3 +31,20 @@ const obj = directoryList.reduce((acc, dir, idx) => {
 }, {});
 
 fs.writeFileSync(outputFile, JSON.stringify(obj));
+
+// Generate postMap.js
+let postMapContent = `export const postModules = {\n`;
+
+Object.entries(obj).forEach(([category, posts]) => {
+  posts.forEach((post) => {
+    const [[fileName, [postTitle]]] = Object.entries(post);
+    const importPath = `/posts/${category}/${fileName}`;
+    postMapContent += `  '${importPath}': () => import('.${importPath}.js'),\n`;
+  });
+});
+
+postMapContent += `};\n`;
+
+fs.writeFileSync(outputMapFile, postMapContent);
+
+console.log('Generated posts.json and postMap.js');

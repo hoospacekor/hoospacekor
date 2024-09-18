@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'preact/hooks';
 import { useLocation, useRoute } from 'preact-iso';
 import SharedDate from '../../context/dateContext';
+import { postModules } from '../../postMap';
 
 const DynamicPost = () => {
   const { path } = useLocation();
@@ -11,9 +12,14 @@ const DynamicPost = () => {
   useEffect(() => {
     const loadPost = async () => {
       try {
-        const postModule = await import(`../..${path}.js`);
-        const content = await postModule.default();
-        setPostContent(content);
+        const loadModule = postModules[path];
+        if (loadModule) {
+          const postModule = await loadModule();
+          const content = await postModule.default();
+          setPostContent(content);
+        } else {
+          throw new Error('Post not found');
+        }
       } catch (error) {
         console.error('Failed to load post:', error);
         setPostContent('<p>Failed to load post content.</p>');
