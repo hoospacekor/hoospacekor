@@ -28,8 +28,12 @@ const HowToMakeAListOfFilesFromDirectories = () => {
                 Read directory structure using <mark>fs</mark> and{' '}
                 <mark>path</mark> modules from Node.js
               </li>
-              <li>Write JSON file to use</li>
-              <li>Add extra metadata if you need</li>
+              <li>
+                Write <mark>JSON file</mark> to use
+              </li>
+              <li>
+                Add extra <mark>metadata</mark> if you need
+              </li>
             </ol>
           </details>
         </p>

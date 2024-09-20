@@ -65,11 +65,12 @@ export default function Home() {
       <p>
         <em>Unlike</em> the source of inspiration above, I'm not cynical :)
         <br />
-        Feel free to follow me on Github, or contact via{' '}
+        You can follow me on Github, or contact via{' '}
         <a target={'_blank'} href="mailto:gerrard1219@gmail.com">
           E-mail
         </a>
-        .
+        .<br />
+        Feel free to share posts with anyone who might find it interesting.
       </p>
 
       <h2>Recent Posts</h2>
@@ -90,6 +91,10 @@ export default function Home() {
           })}
         </ul>
       )}
+      <footer>
+        <a href="https://hookortech.pages.dev">HookorTech</a> • ©{' '}
+        {new Date().getFullYear()} • All right reserved.
+      </footer>
     </>
   );
 }
