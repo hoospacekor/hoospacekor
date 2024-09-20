@@ -1,3 +1,5 @@
+import { useScript, useLang, useTitle, useLink } from 'hoofd/preact';
+
 const { default: jsonObject } = await import('../../posts.json', {
   assert: {
     type: 'json',
@@ -13,6 +15,22 @@ const generateDate = (date) => {
 };
 
 export default function Home() {
+  useLang('en');
+  useTitle('HookorTech');
+  useLink({ rel: 'canonical', href: 'https://hookortech.pages.dev' });
+  useScript({
+    type: 'application/ld+json',
+    text: `{ "@context": "https://www.schema.org", "@type": "Blog", "name": "HookorTech", "description": "Tech blog run buy Joonghoo Ahn, who is JS web developer",
+    ,"mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://hookortech.pages.dev"  },
+    "author": {
+			"@type": "Developer",
+			"name": "AHNJOONGHOO",
+			"url": "https://github.com/hookor"
+		}}`,
+  });
+
   const recentPosts = Object.entries(jsonObject)
     .flatMap(([category, items]) => {
       return items.map((item) => {

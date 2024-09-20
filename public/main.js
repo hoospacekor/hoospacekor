@@ -8,6 +8,7 @@ import {
   hydrate,
   prerender as ssr,
 } from 'preact-iso';
+import { toStatic } from 'hoofd/preact';
 import Home from './pages/home/index.js';
 import NotFound from './pages/_404.js';
 import Header from './header.js';
@@ -40,5 +41,22 @@ export function App() {
 hydrate(<App />);
 
 export async function prerender(data) {
-  return await ssr(<App {...data} />);
+  const result = await ssr(<App {...data} />);
+
+  const head = toStatic();
+  const elements = new Set([
+    ...head.links.map((props) => ({ type: 'link', props })),
+    ...head.metas.map((props) => ({ type: 'meta', props })),
+    ...head.scripts.map((props) => ({ type: 'script', props })),
+  ]);
+
+  // Return the results back to WMR
+  return {
+    ...result,
+    head: {
+      lang: head.lang,
+      title: head.title,
+      elements,
+    },
+  };
 }

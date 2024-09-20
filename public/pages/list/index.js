@@ -1,4 +1,5 @@
 import { useLocation } from 'preact-iso';
+import { useScript, useLang, useTitle, useTitleTemplate } from 'hoofd/preact';
 
 const { default: jsonObject } = await import('../../posts.json', {
   assert: {
@@ -15,8 +16,20 @@ const generateDate = (date) => {
 };
 
 const List = () => {
+  useLang('en');
+  useTitleTemplate('%s - HookorTech posts category');
   const { path } = useLocation();
   const category = path.substring(1);
+  useTitle(`${category}`);
+  useScript({
+    type: 'application/ld+json',
+    text: `{ "@context": "https://www.schema.org", "@type": "BlogPostingList", "headline": "${category} - HookorTech posts category", "author": {
+			"@type": "Developer",
+			"name": "AHNJOONGHOO",
+			"url": "https://github.com/hookor"
+		}}`,
+  });
+
   return (
     jsonObject &&
     jsonObject[category] && (
