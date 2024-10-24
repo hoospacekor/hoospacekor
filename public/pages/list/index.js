@@ -30,6 +30,16 @@ const List = () => {
 		}}`,
   });
 
+  const arranged =
+    jsonObject[category] &&
+    jsonObject[category].sort((a, b) => {
+      const A = Object.values(a).flat();
+      const B = Object.values(b).flat();
+      const dateA = new Date(A[1]);
+      const dateB = new Date(B[1]);
+      return dateB < dateA ? -1 : 1;
+    });
+
   return (
     jsonObject &&
     jsonObject[category] && (
@@ -37,7 +47,7 @@ const List = () => {
         <h2>{category.toUpperCase()}</h2>
         <p>
           <ul>
-            {jsonObject[category]?.reverse().map((post) => {
+            {arranged.map((post) => {
               const singlePost = Object.entries(post)[0];
               return (
                 <li>
