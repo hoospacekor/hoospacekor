@@ -22,13 +22,15 @@ const DynamicPost = () => {
   const posts = jsonObject && jsonObject[postCategory];
   const title =
     posts &&
-    posts.map((i) => {
-      const arr = Object.entries(i);
-      const flattened = arr.flat().flat();
-      const predi = flattened[0] === postTitle;
-      const result = predi ? flattened[1] : false;
-      return result;
-    })[0];
+    posts
+      .map((i) => {
+        const arr = Object.entries(i);
+        const flattened = arr.flat().flat();
+        const predi = flattened[0] === postTitle;
+        const result = predi ? flattened[1] : false;
+        return result;
+      })
+      .filter((i) => i)[0];
   useTitle(`${title}`);
 
   useScript({
