@@ -98,7 +98,11 @@ export default function Home() {
             const [category, id, title, date] = post;
             return (
               <li>
-                <span style={'font-size: 14px; padding-right: 14px;'}>
+                <span
+                  style={
+                    'font-size: 14px; padding-right: 14px; min-width: 100px; display: inline-block;'
+                  }
+                >
                   {generateDate(date)}
                 </span>
                 <a href={`/posts/${category}/${id}?date=${generateDate(date)}`}>

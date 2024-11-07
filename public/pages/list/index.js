@@ -51,7 +51,11 @@ const List = () => {
               const singlePost = Object.entries(post)[0];
               return (
                 <li>
-                  <span style={'font-size: 14px; padding-right: 14px;'}>
+                  <span
+                    style={
+                      'font-size: 14px; padding-right: 14px; min-width: 100px; display: inline-block;'
+                    }
+                  >
                     {generateDate(singlePost[1][1])}
                   </span>
                   <a
