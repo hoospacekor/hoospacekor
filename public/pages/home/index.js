@@ -1,25 +1,25 @@
-import { useScript, useLang, useTitle, useLink } from 'hoofd/preact';
+import { useScript, useLang, useTitle, useLink } from "hoofd/preact";
 
-const { default: jsonObject } = await import('../../posts.json', {
+const { default: jsonObject } = await import("../../posts.json", {
   assert: {
-    type: 'json',
+    type: "json",
   },
 });
 
 const generateDate = (date) => {
-  return new Date(date).toLocaleDateString('en-us', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
+  return new Date(date).toLocaleDateString("en-us", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
   });
 };
 
 export default function Home() {
-  useLang('en');
-  useTitle('HookorTech');
-  useLink({ rel: 'canonical', href: 'https://hookortech.pages.dev' });
+  useLang("en");
+  useTitle("HookorTech");
+  useLink({ rel: "canonical", href: "https://hookortech.pages.dev" });
   useScript({
-    type: 'application/ld+json',
+    type: "application/ld+json",
     text: `{ "@context": "https://www.schema.org", "@type": "Blog", "name": "HookorTech", "description": "Tech blog run buy Joonghoo Ahn, who is JS web developer",
     ,"mainEntityOfPage": {
       "@type": "WebPage",
@@ -53,27 +53,27 @@ export default function Home() {
         <ol>
           <li>
             greatly inspired by
-            <a target={'_blank'} href="https://motherfuckingwebsite.com">
-              {' '}
+            <a target={"_blank"} href="https://motherfuckingwebsite.com">
+              {" "}
               motherfuckingwebsite.com
             </a>
           </li>
           <li>
             built with
-            <a target={'_blank'} href="https://preactjs.com/">
-              {' '}
+            <a target={"_blank"} href="https://preactjs.com/">
+              {" "}
               Preact
             </a>
             ,
-            <a target={'_blank'} href="https://highlightjs.org/">
-              {' '}
+            <a target={"_blank"} href="https://highlightjs.org/">
+              {" "}
               highlight.js
             </a>
           </li>
           <li>
             created by
-            <a target={'_blank'} href={'https://github.com/hookor'}>
-              {' '}
+            <a target={"_blank"} href={"https://github.com/hookor"}>
+              {" "}
               hookor
             </a>
           </li>
@@ -83,8 +83,8 @@ export default function Home() {
       <p>
         <em>Unlike</em> the source of inspiration above, I'm not cynical :)
         <br />
-        You can follow me on Github, or contact via{' '}
-        <a target={'_blank'} href="mailto:gerrard1219@gmail.com">
+        You can follow me on Github, or contact via{" "}
+        <a target={"_blank"} href="mailto:gerrard1219@gmail.com">
           E-mail
         </a>
         .<br />
@@ -100,7 +100,7 @@ export default function Home() {
               <li>
                 <span
                   style={
-                    'font-size: 14px; padding-right: 14px; min-width: 100px; display: inline-block;'
+                    "font-size: 14px; padding-right: 14px; min-width: 100px; display: inline-block;"
                   }
                 >
                   {generateDate(date)}
@@ -114,7 +114,7 @@ export default function Home() {
         </ul>
       )}
       <footer>
-        <a href="https://hookortech.pages.dev">HookorTech</a> • ©{' '}
+        <a href="https://hookortech.pages.dev">HookorTech</a> • ©{" "}
         {new Date().getFullYear()} • All right reserved.
       </footer>
     </>

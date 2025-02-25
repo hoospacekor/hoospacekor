@@ -4,7 +4,7 @@ import { defineConfig } from 'wmr';
 export default defineConfig({
 	/* Your configuration here */
 	alias: {
-		react: 'preact/compat',
+		'react': 'preact/compat',
 		'react-dom': 'preact/compat'
 	}
 });
