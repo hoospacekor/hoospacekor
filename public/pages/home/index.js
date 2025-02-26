@@ -46,51 +46,31 @@ export default function Home() {
     <>
       <h2>Hi I'm JoongHoo Ahn</h2>
       <q cite="https://motherfuckingwebsite.com">
-        <strong>You. Are. Over-designing</strong>
+        <strong>Good design is as little design as possible</strong>
       </q>
+      <br />
+      <br />
+      This blog is inspired by the quote.
       <p>
-        This blog is
-        <ol>
-          <li>
-            greatly inspired by
-            <a target={"_blank"} href="https://motherfuckingwebsite.com">
-              {" "}
-              motherfuckingwebsite.com
-            </a>
-          </li>
-          <li>
-            built with
-            <a target={"_blank"} href="https://preactjs.com/">
-              {" "}
-              Preact
-            </a>
-            ,
-            <a target={"_blank"} href="https://highlightjs.org/">
-              {" "}
-              highlight.js
-            </a>
-          </li>
-          <li>
-            created by
-            <a target={"_blank"} href={"https://github.com/hookor"}>
-              {" "}
-              hookor
-            </a>
-          </li>
-        </ol>
+        The blog is about:
+        <br />
+        <ul>
+          <li>Sharing tech knowledge</li>
+          <li>My personal recaps</li>
+          <li>Writing about my inspirations</li>
+        </ul>
       </p>
-
       <p>
-        <em>Unlike</em> the source of inspiration above, I'm not cynical :)
+        I'm recently interested in Neovim, (P)React, Node.js, Visualisation
+        tools :).
         <br />
         You can follow me on Github, or contact via{" "}
         <a target={"_blank"} href="mailto:gerrard1219@gmail.com">
           E-mail
         </a>
         .<br />
-        Feel free to share posts with anyone who might find it interesting.
+        Feel free to share posts with anyone who might find them interesting.
       </p>
-
       <h2>Recent Posts</h2>
       {jsonObject && (
         <ul>
