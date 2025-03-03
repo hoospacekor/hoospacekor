@@ -18,7 +18,7 @@ const extractMetadata = (filePath) => {
 };
 
 const skipPrevFiles = (json, dir, file) => {
-  return json[dir].filter(i => i[file]) ? true : false;
+  return json[dir].filter(i => i[file])[0] ? true : false;
 };
 
 const obj = directoryList.reduce((acc, dir, idx) => {
@@ -28,10 +28,13 @@ const obj = directoryList.reduce((acc, dir, idx) => {
     const { postTitle = "Default Post Title" } = extractMetadata(filePath);
 
     const title = i.split(".js")[0];
-    const prevtime = prevjson[dir].filter(i => i[title])[0][title][1];
+    const prevItem =  prevjson[dir].filter(i => i[title])[0]
+
+    const prevtime = prevItem && prevItem[title][1];
     const bt = skipPrevFiles(prevjson, dir, title)  
       ? prevtime
       : stats.birthtime;
+
     return {
       [title]: [postTitle, bt],
     };
