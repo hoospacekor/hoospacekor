@@ -1,16 +1,18 @@
-import styles from './header.module.css';
-
-const darkTheme = import('highlight.js/styles/github-dark.min.css');
-const lightTheme = import('highlight.js/styles/github.min.css');
+import styles from "./header.module.css";
+import { useLocation } from "preact-iso";
+const darkTheme = import("highlight.js/styles/github-dark.min.css");
+const lightTheme = import("highlight.js/styles/github.min.css");
 
 export default function Header() {
+  const url = useLocation();
+
   return (
     <>
       <header>
         <a href="/">
           <h1>Hookor Tech</h1>
         </a>
-        <aside>Web developement</aside>
+        {url.path === "/" && <aside>Web developement</aside>}
       </header>
 
       <nav>
