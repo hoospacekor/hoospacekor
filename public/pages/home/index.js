@@ -16,18 +16,18 @@ const generateDate = (date) => {
 
 export default function Home() {
   useLang("en");
-  useTitle("HookorTech");
-  useLink({ rel: "canonical", href: "https://hookortech.pages.dev" });
+  useTitle("Hoospacekor");
+  useLink({ rel: "canonical", href: "https://hoospacekor.pages.dev" });
   useScript({
     type: "application/ld+json",
-    text: `{ "@context": "https://www.schema.org", "@type": "Blog", "name": "HookorTech", "description": "Tech blog run buy Joonghoo Ahn, who is JS web developer",
+    text: `{ "@context": "https://www.schema.org", "@type": "Blog", "name": "Hoospacekor", "description": "Tech blog run buy Joonghoo Ahn, who is web developer",
     ,"mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://hookortech.pages.dev"  },
+      "@id": "https://hoospacekor.pages.dev"  },
     "author": {
 			"@type": "Developer",
 			"name": "AHNJOONGHOO",
-			"url": "https://github.com/hookor"
+			"url": "https://github.com/hoospaceor"
 		}}`,
   });
 
@@ -64,7 +64,7 @@ export default function Home() {
         I'm recently interested in Neovim, (P)React, Node.js, Visualisation
         tools :).
         <br />
-        You can follow me on Github, or contact via{" "}
+        You can follow me on <a target={"_blank"} href="https://github.com/hoospacekor">Github</a>, or contact via{" "}
         <a target={"_blank"} href="mailto:gerrard1219@gmail.com">
           E-mail
         </a>
@@ -94,7 +94,7 @@ export default function Home() {
         </ul>
       )}
       <footer>
-        <a href="https://hookortech.pages.dev">HookorTech</a> • ©{" "}
+        <a href="https://hoospacekor.pages.dev">Hoospacekor</a> • ©{" "}
         {new Date().getFullYear()} • All right reserved.
       </footer>
     </>

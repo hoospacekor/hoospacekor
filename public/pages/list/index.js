@@ -17,16 +17,16 @@ const generateDate = (date) => {
 
 const List = () => {
   useLang('en');
-  useTitleTemplate('%s - HookorTech posts category');
+  useTitleTemplate('%s - Hoospacekor posts category');
   const { path } = useLocation();
   const category = path.substring(1);
   useTitle(`${category}`);
   useScript({
     type: 'application/ld+json',
-    text: `{ "@context": "https://www.schema.org", "@type": "BlogPostingList", "headline": "${category} - HookorTech posts category", "author": {
+    text: `{ "@context": "https://www.schema.org", "@type": "BlogPostingList", "headline": "${category} - Hoospacekor posts category", "author": {
 			"@type": "Developer",
 			"name": "AHNJOONGHOO",
-			"url": "https://github.com/hookor"
+			"url": "https://github.com/hoospacekor"
 		}}`,
   });
 

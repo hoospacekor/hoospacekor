@@ -10,7 +10,7 @@ export default function Header() {
     <>
       <header>
         <a href="/">
-          <h1>Hookor Tech</h1>
+          <h1>Hoospacekor</h1>
         </a>
         {url.path === "/" && <aside>Web developement</aside>}
       </header>

@@ -12,7 +12,7 @@ const { default: jsonObject } = await import('../../posts.json', {
 
 const DynamicPost = () => {
   useLang('en');
-  useTitleTemplate('%s - HookorTech post');
+  useTitleTemplate('%s - Hoospacekor post');
 
   const { path } = useLocation();
   const { query } = useRoute();
@@ -35,10 +35,10 @@ const DynamicPost = () => {
 
   useScript({
     type: 'application/ld+json',
-    text: `{ "@context": "https://www.schema.org", "@type": "BlogPosting", "headline": "${title} - HookorTech post", "author": {
+    text: `{ "@context": "https://www.schema.org", "@type": "BlogPosting", "headline": "${title} - Hoospacekor post", "author": {
 			"@type": "Developer",
 			"name": "AHNJOONGHOO",
-			"url": "https://github.com/hookor"
+			"url": "https://github.com/hoospacekor"
 		}}`,
   });
 
